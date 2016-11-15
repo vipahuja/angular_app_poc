@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Examination Portal</title>
+</head>
+<body>
+<p>Hi {{UserName}} Welcome To The Online Examination Portal</p>
+<form name="myForm">
+
+
+    <p>FullName:<br>
+        <input type="text" name="fullName" ng-model="profile.fullName" required>
+        <span style="color:red" ng-show="myForm.fullName.$dirty && myForm.fullName.$invalid">
+        <span ng-show="myForm.fullName.$error.required">FullName is required.</span>
+        </span>
+    </p>
+
+
+    <p>Email:<br>
+        <input type="email" name="email" ng-model="profile.email" required>
+        <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+        <span ng-show="myForm.email.$error.required">Email is required.</span>
+        <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+        </span>
+    </p>
+    <p>Address:<br>
+        <input type="text" name="address" ng-model="profile.address" required>
+        <span style="color:red" ng-show="myForm.address.$dirty && myForm.address.$invalid">
+        <span ng-show="myForm.address.$error.required">Address is required.</span>
+        </span>
+    </p>
+
+    <p>Mobile Number:<br>
+        <input type="number" name="number" ng-model="profile.number"  ng-minlength="10" ng-maxlength="10" required>
+        <span style="color:red" ng-show="myForm.number.$dirty && myForm.number.$invalid">
+        <span ng-show="myForm.number.$error.required">Mobile Number is required.</span>
+
+            <span ng-show="myForm.number.$invalid">Mobile Number is invalid.</span>
+        </span>
+    </p>
+
+    <p>Roll Number:<br>
+        <input type="number" name="rollnumber" ng-model="profile.rollnumber" ng-minlength="8" ng-maxlength="8" required>
+        <span style="color:red" ng-show="myForm.rollnumber.$dirty && myForm.rollnumber.$invalid">
+        <span ng-show="myForm.rollnumber.$error.required">Rollnumber is required.</span>
+         <span ng-show="myForm.rollnumber.$invalid">Rollnumber is invalid.</span>
+        </span>
+    </p>
+
+
+    <p>
+        <input type="submit" ng-disabled="myForm.$invalid" ng-click="onSubmit()">
+    </p>
+
+</form>
+</body>
+
+
+
+
+
+
+
+
+</html>

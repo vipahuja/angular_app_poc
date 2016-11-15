@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Examination Portal</title>
+</head>
+<body>
+<p>Hi {{UserName}} Welcome To The Online Examination Portal</p>
+<form name="myForm">
+
+    <p>Question:<br>
+       <span>{{questions.question[questionCounter].ques}}</span>
+    </p>
+    <label>
+        <input type="radio" ng-model="userAns" ng-value="questions.question[questionCounter].choice.ans1"
+        ng-required="!questions.question[questionCounter].user">
+        {{questions.question[questionCounter].choice.ans1}}
+    </label><br/>
+    <label>
+        <input type="radio" ng-model="userAns" ng-value="questions.question[questionCounter].choice.ans2"
+               ng-required="!questions.question[questionCounter].user">
+        {{questions.question[questionCounter].choice.ans2}}
+    </label><br/>
+    <label>
+        <input type="radio" ng-model="userAns" ng-value="questions.question[questionCounter].choice.ans3"
+               ng-required="!questions.question[questionCounter].user">
+        {{questions.question[questionCounter].choice.ans3}}
+    </label><br/>
+    <label>
+        <input type="radio" ng-model="userAns" ng-value="questions.question[questionCounter].choice.ans4"
+               ng-required="!questions.question[questionCounter].user">
+        {{questions.question[questionCounter].choice.ans4}}
+    </label><br/>
+
+    <p>
+        <button ng-disabled=!showPreviousButton type="button" ng-click="previous()">Previous</button>
+
+    </p>
+    <p>
+        <input type="submit" ng-disabled="myForm.$invalid" ng-click="onSubmit()">
+    </p>
+    <p>
+        <button ng-disabled=!showNextButton type="button" ng-click="next()">Next</button>
+    </p>
+
+</form>
+</body>
+
+
+
+
+
+
+
+
+</html>

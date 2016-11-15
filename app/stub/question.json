@@ -1,0 +1,50 @@
+[
+  {
+    "choice": {
+      "ans1": "New Delhi1",
+      "ans2": "Chennai1",
+      "ans3": "Mumbai1",
+      "ans4": "Kolkata1"
+    },
+    "correct": "New Delhi1",
+    "number": 1,
+    "ques": "Capital of India1",
+    "user": ""
+  },
+  {
+    "choice": {
+      "ans1": "New Delhi2",
+      "ans2": "Chennai2",
+      "ans3": "Mumbai2",
+      "ans4": "Kolkata1"
+    },
+    "correct": "New Delhi2",
+    "number": 2,
+    "ques": "Capital of India2",
+    "user": ""
+  },
+  {
+    "choice": {
+      "ans1": "New Delhi3",
+      "ans2": "Chennai3",
+      "ans3": "Mumbai3",
+      "ans4": "Kolkata1"
+    },
+    "correct": "New Delhi3",
+    "number": 3,
+    "ques": "Capital of India3",
+    "user": ""
+  },
+  {
+    "choice": {
+      "ans1": "New Delhi4",
+      "ans2": "Chennai4",
+      "ans3": "Mumbai4",
+      "ans4": "Kolkata1"
+    },
+    "correct": "New Delhi4",
+    "number": 4,
+    "ques": "Capital of India4",
+    "user": ""
+  }
+]

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Examination Portal</title>
+</head>
+<body>
+<p>Hi {{UserName}} Welcome To The Online Examination Portal</p>
+<form name="myForm">
+
+    <p>Question:<br>
+       <span>{{questions.question[questionCounter].ques}}</span>
+    </p>
+    <label>
+        <input type="radio" ng-model="questions.question[questionCounter].user" ng-value="questions.question[questionCounter].choice.ans1">
+        {{questions.question[questionCounter].choice.ans1}}
+    </label><br/>
+    <label>
+        <input type="radio" ng-model="questions.question[questionCounter].user" ng-value="questions.question[questionCounter].choice.ans2">
+        {{questions.question[questionCounter].choice.ans2}}
+    </label><br/>
+    <label>
+        <input type="radio" ng-model="questions.question[questionCounter].user" ng-value="questions.question[questionCounter].choice.ans3">
+        {{questions.question[questionCounter].choice.ans3}}
+    </label><br/>
+    <label>
+        <input type="radio" ng-model="questions.question[questionCounter].user" ng-value="questions.question[questionCounter].choice.ans4">
+        {{questions.question[questionCounter].choice.ans4}}
+    </label><br/>    
+
+
+    <p>
+        <input type="submit" ng-click="onSubmit()">
+    </p>
+
+</form>
+</body>
+
+
+
+
+
+
+
+
+</html>
