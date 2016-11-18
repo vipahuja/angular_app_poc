@@ -17,7 +17,7 @@ myapp.controller("questionCrtl", function ($scope, $location, $q, questionServic
         && angular.isDefined($scope.Password) && angular.equals($scope.Password, 'test')) {
         $scope.authenticated = true;
         $scope.questions = QuestionsServiceFactory;
-
+        console.log("$scope.questions "+ JSON.stringify($scope.questions ));
     }
     else {
         $location.url('/');
@@ -44,6 +44,9 @@ myapp.controller("questionCrtl", function ($scope, $location, $q, questionServic
         }
         else if($scope.questionCounter == $scope.numberOfQuestion)
         {
+            QuestionsServiceFactory = $scope.questions;
+          //  $scope.showNextButton=false;
+           // $scope.showPreviousButton = true;
             $scope.questionCounter=0;
             var continueVar = true;
             angular.forEach(QuestionsServiceFactory.question,function (value,key) {
@@ -51,6 +54,7 @@ myapp.controller("questionCrtl", function ($scope, $location, $q, questionServic
                 {
                     if (value.user) {
                         $scope.questionCounter++;
+
                     }
                     else {
                         continueVar= false;
@@ -129,7 +133,7 @@ myapp.service("questionService", function ($http, $q,configService) {
     var deferred = $q.defer();
 
     this.getQuestions = function () {
-        if (configService.config) {
+        if (configService.configVar.useStub) {
             var headers = {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
@@ -175,8 +179,8 @@ myapp.factory('QuestionsServiceFactory', function (questionService) {
             function (result) {
                 // promise was fullfilled (regardless of outcome)
                 // checks for information will be peformed here
-                var resultData= result.data;
-                console.log(resultData);
+                var resultData= result;
+                console.log("result data "+ JSON.stringify(resultData));
                 QuestionsService.question = result.data;
                 console.log(QuestionsService.question);
             },
@@ -191,5 +195,6 @@ myapp.factory('QuestionsServiceFactory', function (questionService) {
     return QuestionsService;
 });
 myapp.service("configService", function () {
-    var config = true;
+    this.configVar={};
+    this.configVar.useStub=true;
 });
