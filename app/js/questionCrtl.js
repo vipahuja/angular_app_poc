@@ -2,7 +2,8 @@
  * Created by Vipin on 25-08-2016.
  */
 
-myapp.controller("questionCrtl", function ($scope, $location, $q, questionService, QuestionsServiceFactory,configService) {
+myapp.controller("questionCrtl", function ($scope, $location, $q, questionService, QuestionsServiceFactory,configService
+                                            ,$timeout,$interval  ) {
     $scope.UserName = localStorage.getItem('user');
     $scope.Password = localStorage.getItem('pass');
     $scope.questionCounter = 0;
@@ -12,7 +13,7 @@ myapp.controller("questionCrtl", function ($scope, $location, $q, questionServic
     $scope.showNextButton=false;
     $scope.authenticated = false;
     $scope.userAns;
-
+    $scope.timeInmillisecond=5;
     if (angular.isDefined($scope.UserName) && angular.equals($scope.UserName, 'vipin')
         && angular.isDefined($scope.Password) && angular.equals($scope.Password, 'test')) {
         $scope.authenticated = true;
@@ -22,6 +23,29 @@ myapp.controller("questionCrtl", function ($scope, $location, $q, questionServic
     else {
         $location.url('/');
     }
+
+
+  /*  var timeCounter= function () {
+        if($scope.timeInmillisecond==0)
+        {
+            alert("Your time is over Please click on OK");
+            $location.url('/complete');
+        }
+        $scope.timeInmillisecond-=1;
+        $timeout(timeCounter,1000);
+    };
+    $timeout(timeCounter,1000);*/
+
+    $interval(function () {
+        $scope.timeInmillisecond-=1;
+        if($scope.timeInmillisecond==0)
+        {
+            alert("Your time is over, $interval function Please click on OK");
+            $location.url('/complete');
+        }
+    },1000);
+
+
     $scope.onSubmit = function () {
         $scope.questions.question[$scope.questionCounter].user =$scope.userAns;
             console.log("User Anser :=> " + $scope.userAns);
@@ -58,6 +82,7 @@ myapp.controller("questionCrtl", function ($scope, $location, $q, questionServic
                     }
                     else {
                         continueVar= false;
+                        $scope.showNextButton=true;
 
                     }
                 }
